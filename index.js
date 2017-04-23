@@ -39,8 +39,8 @@ app.listen(app.get('port'), function() {
 		if (event.message && event.message.text) {
 			let text = event.message.text
 			if (text === 'Generic'){ 
-				console.log("welcome to chatbot")
-				//sendGenericMessage(sender)
+				//console.log("welcome to chatbot")
+				sendGenericMessage(sender)
 				continue
 			}
 			sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))

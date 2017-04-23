@@ -42,7 +42,9 @@ app.listen(app.get('port'), function() {
   		    sendGenericMessage(sender)
   		    continue
   	    }
+		else {
   	    sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+		}
       }
       if (event.postback) {
   	    let text = JSON.stringify(event.postback)

@@ -92,7 +92,7 @@ function sendGenericMessage(sender) {
 				    }, {
 					    "type": "postback",
 					    "title": "Postback",
-					    "payload": '<img src='+randomGif()+'>',
+					    "payload": '<img src=',
 				    }],
 			    }, {
 				    "title": "Second card",

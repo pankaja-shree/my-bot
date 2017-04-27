@@ -129,6 +129,12 @@ function sendGenericMessage(sender) {
 function randomGif(){
 	var random = []
 	const base_url = 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=american+psycho'
-	fetch(base_url).then(blob => blob.json()).then(data => random.push(data))
+	fetch(base_url)
+	 .then(function(blob){
+		 return blob.json()
+	 })
+	  .then(function(data){
+          random.push(data)
+	  })
     return random[0]['data']['fixed_width_small_url']
 }

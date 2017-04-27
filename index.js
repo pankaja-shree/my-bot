@@ -89,7 +89,7 @@ function sendGenericMessage(sender) {
 				    "buttons": [{
 					    "type": "RandomGif",
 					    "title": "Show random Gif",
-					    "payload": '<img src=',
+					    "payload": 'img src=',
 				    }],
 			    }, {
 				    "title": "Second card",

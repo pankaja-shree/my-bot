@@ -88,10 +88,7 @@ function sendGenericMessage(sender) {
 				    "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
 				    "buttons": [{
 					    "type": "RandomGif",
-					    "title": "Show random Gif"
-				    }, {
-					    "type": "postback",
-					    "title": "Postback",
+					    "title": "Show random Gif",
 					    "payload": '<img src=',
 				    }],
 			    }, {

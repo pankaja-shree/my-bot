@@ -88,7 +88,7 @@ function sendGenericMessage(sender) {
 				    "buttons": [{
 					    "type": "web_url",
 					    "url": "https://www.messenger.com",
-					    "title": "web url"
+					    "title": "Random Gif"
 				    }, {
 					    "type": "postback",
 					    "title": "Postback",

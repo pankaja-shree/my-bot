@@ -136,5 +136,5 @@ function randomGif(){
 	  .then(function(data){
           random.push(data)
 	  })
-    return random['data']['fixed_width_small_url']
+    return random
 }

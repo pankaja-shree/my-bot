@@ -76,6 +76,7 @@ function sendTextMessage(sender, text) {
 }
 
 function sendGenericMessage(sender) {
+
     let messageData = {
 	    "attachment": {
 		    "type": "template",
@@ -86,13 +87,12 @@ function sendGenericMessage(sender) {
 				    "subtitle": "Element #1 of an hscroll",
 				    "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
 				    "buttons": [{
-					    "type": "web_url",
-					    "url": "https://www.messenger.com",
-					    "title": "web url"
+					    "type": "RandomGif",
+					    "title": "Show random Gif"
 				    }, {
 					    "type": "postback",
 					    "title": "Postback",
-					    "payload": "Payload for first element in a generic bubble",
+					    "payload": '<img src='+randomGif()+'>',
 				    }],
 			    }, {
 				    "title": "Second card",
@@ -122,4 +122,11 @@ function sendGenericMessage(sender) {
 		    console.log('Error: ', response.body.error)
 	    }
     })
+}
+
+function randomGif(){
+	var random = []
+	const base_url = 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=american+psycho'
+	fetch(base_url).then(blob => blob.json()).then(data => random.push(data))
+    return random[0]['data']['fixed_width_small_url']
 }

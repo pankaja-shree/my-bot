@@ -94,7 +94,7 @@ function sendGenericMessage(sender) {
 				    }, {
 					    "type": "postback",
 					    "title": "Postback",
-					    "payload": "Payload for first element in a generic bubble"+randomGif(),
+					    "payload": "Payload for first element in a generic bubble: http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=american+psycho",
 				    }],
 			    }, {
 				    "title": "Second card",

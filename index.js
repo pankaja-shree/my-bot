@@ -82,10 +82,10 @@ function sendGenericMessage(sender) {
 	    "attachment": {
 		    "type": "template",
 		    "payload": {
-				"template_type": "generic",
+				"template_type": "list",
+				"top_element_style": "compact",
 			    "elements": [{
 					"title": "First card",
-				    "subtitle": "Element #1 of an hscroll",
 				    "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
 				    "buttons": [{
 					    "type": "web_url",
@@ -94,12 +94,10 @@ function sendGenericMessage(sender) {
 				    }, {
 					    "type": "postback",
 					    "title": "Postback",
-					    "payload": "Payload for first element in a generic bubble:"+randomGif,
+					    "payload": "Payload for first element in a generic bubble:",
 				    }],
 			    }, {
 				    "title": "Second card",
-				    "subtitle": "Element #2 of an hscroll",
-				    "image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
 				    "buttons": [{
 					    "type": "postback",
 					    "title": "Postback",

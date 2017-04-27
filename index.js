@@ -94,7 +94,7 @@ function sendGenericMessage(sender) {
 				    }, {
 					    "type": "postback",
 					    "title": "Postback",
-					    "payload": "Payload for first element in a generic bubble: http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=american+psycho",
+					    "payload": "Payload for first element in a generic bubble:"+randomGif,
 				    }],
 			    }, {
 				    "title": "Second card",
@@ -127,14 +127,12 @@ function sendGenericMessage(sender) {
 }
 
 function randomGif(){
-	var random = []
 	const base_url = 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=american+psycho'
 	fetch(base_url)
 	 .then(function(blob){
 		 return blob.json()
 	 })
-	  .then(function(data){
-          random.push(data)
-		  return random['data']['fixed_width_small_url']
+	  .then(function(jsondata){
+		  return jsondata['data']['fixed_width_small_url']
 	  })
 }

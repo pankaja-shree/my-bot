@@ -92,7 +92,7 @@ function sendGenericMessage(sender) {
 				    }, {
 					    "type": "postback",
 					    "title": "Postback",
-					    "payload": "Payload for first element in a generic bubble",
+					    "payload": "Payload for first element in a generic bubble"+randomGif(),
 				    }],
 			    }, {
 				    "title": "Second card",

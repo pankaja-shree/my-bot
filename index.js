@@ -52,7 +52,7 @@ app.listen(app.get('port'), function() {
 		}
 		if (event.postback) {
 			let text = JSON.stringify(event.postback)
-			sendTextMessage(sender, "Postback received: "+text, token)
+			sendTextMessage(sender, "Postback received: "+text.payload, token)
 			continue
 		}
 	}

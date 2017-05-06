@@ -87,7 +87,7 @@ function sendOptions(sender) {
       {
         "content_type":"text",
         "title":"I want a healthier diet",
-        "payload":"Healthier Diet"
+        "payload":healthy(sender)
       },
       {
         "content_type":"text",
@@ -96,6 +96,45 @@ function sendOptions(sender) {
       }
     ]
   }
+    request({
+	    url: 'https://graph.facebook.com/v2.6/me/messages',
+	    qs: {access_token:token},
+	    method: 'POST',
+		json: {
+		    recipient: {id:sender},
+			message: messageData,
+		}
+	}, function(error, response, body) {
+		if (error) {
+		    console.log('Error sending messages: ', error)
+		} else if (response.body.error) {
+		    console.log('Error: ', response.body.error)
+	    }
+    })
+}
+
+function healthy(sender) {
+    let messageData = {
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"button",
+        "text":"That’s simple, only cucumbers and water for you the whole week. Kidding! To help you eat healthy, I would like to suggest homecooked meals for you every week. Would you like meal playlists at the beginning of each week? They’re like music playlists, but for food!",
+        "buttons":[
+          {
+            "type":"postback",
+            "title":"Yes",
+			"payload":"USER_DEFINED_PAYLOAD"
+          },
+          {
+            "type":"postback",
+            "title":"Yes",
+            "payload":"USER_DEFINED_PAYLOAD"
+          }
+        ]
+      }
+    }
+	}
     request({
 	    url: 'https://graph.facebook.com/v2.6/me/messages',
 	    qs: {access_token:token},

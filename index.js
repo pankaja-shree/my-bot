@@ -49,7 +49,8 @@ app.listen(app.get('port'), function() {
 			sendOptions(sender);
 			}
 		}
-		$quickReplyPayLoad = $input['entry'][0]['messaging'][0]['message']['quick_reply']['payload'];
+		
+		$quickReplyPayLoad = event['message']['quick_reply']['payload'];
         if($quickReplyPayLoad == '1') healthy(sender)
 
 		if (event.postback) {

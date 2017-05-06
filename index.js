@@ -47,8 +47,13 @@ app.listen(app.get('port'), function() {
 			}
 		    if (text.toLowerCase() === 'hi' || text.toLowerCase() === 'hello'){ 
 			sendOptions(sender);
-			}
 		}
+		if(text == 'I want a healthier diet'){
+			healthy(sender)
+		}
+		
+		}
+
 		if (event.postback) {
 			let text = JSON.stringify(event.postback)
 			if(text.payload == '1') sendTextMessage(sender, text.payload)

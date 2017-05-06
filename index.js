@@ -48,12 +48,10 @@ app.listen(app.get('port'), function() {
 			}
 		    if (text.toLowerCase() === 'hi' || text.toLowerCase() === 'hello'){ 
 			sendOptions(sender);
-			}		
 		}
-	
-
-		if(event.message["quick_reply"]["payload"]){
+		if(event["message"]["quick_reply"]["payload"]){
 			sendTextMessage(sender,"Quick reply")
+		}		
 		}
 
 		if (event.postback) {

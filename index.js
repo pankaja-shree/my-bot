@@ -47,12 +47,10 @@ app.listen(app.get('port'), function() {
 			}
 		    if (text.toLowerCase() === 'hi' || text.toLowerCase() === 'hello'){ 
 			sendOptions(sender);
+			}
 		}
-		if(text == 'I want a healthier diet'){
-			healthy(sender)
-		}
-		
-		}
+		$quickReplyPayLoad = $input['entry'][0]['messaging'][0]['message']['quick_reply']['payload'];
+        if($quickReplyPayLoad == '1') healthy(sender)
 
 		if (event.postback) {
 			let text = JSON.stringify(event.postback)

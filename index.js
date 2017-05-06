@@ -115,7 +115,6 @@ function sendOptions(sender) {
     })
 }
 
-/*
 //healthier diet option
 function healthy(sender) {
     let messageData = {
@@ -128,12 +127,12 @@ function healthy(sender) {
           {
             "type":"postback",
             "title":"Yes",
-			"payload":"USER_DEFINED_PAYLOAD"
+			"payload":"playlist"
           },
           {
             "type":"postback",
             "title":"Yes",
-            "payload":"USER_DEFINED_PAYLOAD"
+            "payload":"playlist"
           }
         ]
       }

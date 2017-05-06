@@ -48,10 +48,11 @@ app.listen(app.get('port'), function() {
 			}
 		    if (text.toLowerCase() === 'hi' || text.toLowerCase() === 'hello'){ 
 			sendOptions(sender);
-		}
-		if(event["message"]["quick_reply"]["payload"]){
-			sendTextMessage(sender,"Quick reply")
 		}		
+	}
+	
+	if(event["message"]["quick_reply"]["payload"]){
+			sendTextMessage(sender,"Quick reply")
 		}
 
 		if (event.postback) {
@@ -74,7 +75,7 @@ app.listen(app.get('port'), function() {
 
 const token = process.env.FB_PAGE_ACCESS_TOKEN;
 
-//General function to send a text message - copy from the bot guide
+//General function to send a text message 
 function sendTextMessage(sender, text) {
     let messageData = { text:text }
     request({
@@ -169,15 +170,3 @@ function healthy(sender) {
 }
 
 
-/*
-function randomGif(){
-	const base_url = 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=american+psycho'
-	fetch(base_url)
-	 .then(function(blob){
-		 return blob.json()
-	 })
-	  .then(function(jsondata){
-		  return jsondata['data']['fixed_width_small_url']
-	  })
-}
-*/

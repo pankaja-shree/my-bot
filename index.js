@@ -47,12 +47,11 @@ app.listen(app.get('port'), function() {
 			}
 		    if (text.toLowerCase() === 'hi' || text.toLowerCase() === 'hello'){ 
 			sendTextMessage(sender, "How are you doing, I’m Kim! I’m a rehabilitated K-Pop star and nutrition bot in training. Winfred says I don’t know much yet, but I’m learning! My job as virtual nutrition expert is to help you eat right and reduce the amount of uneaten, disposed food. To help you track your eating habits, I need to know a few things about you at the moment. Don’t worry, I pinky swear I won’t tell anyone else.");
-			sendOptions(sender)
 			}
 		}
 		if (event.postback) {
 			let text = JSON.stringify(event.postback)
-			sendTextMessage(sender, "Postback received: "+text.payload, token)
+			if(text.payload == '1') healthy(sender)
 			continue
 		}
 	}
@@ -79,6 +78,7 @@ function sendTextMessage(sender, text) {
 		    console.log('Error: ', response.body.error)
 	    }
     })
+	sendOptions(sender)
 }
 
 //To give the first 2 options - 1. healthier diet; 2. Current diet
@@ -113,10 +113,6 @@ function sendOptions(sender) {
 		    console.log('Error: ', response.body.error)
 	    }
     })
-}
-
-function options(sender, opt){
-	if(opt == 1) healthy(sender)
 }
 
 //healthier diet option

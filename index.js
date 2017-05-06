@@ -88,16 +88,16 @@ function sendOptions(sender) {
 			"type" : "template",
 			"payload": {
 				"template_type" : "button",
-				"text":"How are you doing, I’m Kim! I’m a rehabilitated K-Pop star and nutrition bot in training. Winfred says I don’t know much yet, but I’m learning! My job as virtual nutrition expert is to help you eat right and reduce the amount of uneaten, disposed food. To help you track your eating habits, I need to know a few things about you at the moment. Don’t worry, I pinky swear I won’t tell anyone else. Please choose one of the following:",
+				"text":"How are you doing, I’m Kim! I’m a rehabilitated K-Pop star and nutrition bot in training. Winfred says I don’t know much yet, but I’m learning! My job as virtual nutrition expert is to help you eat right and reduce the amount of uneaten, disposed food. To help you track your eating habits, I need to know a few things about you at the moment. Don’t worry, I pinky swear I won’t tell anyone else. Please choose one of the following: I want...",
 				"buttons":[
 					{
 						"type":"postback",
-						"title":"I want a healthier diet",
+						"title":"Healthier diet",
 						"payload":"1"
 					},
 					{
 						"type":"postback",
-						"title":"I like my current diet",
+						"title":"Current diet",
 						"payload":"2"
 					}
 					]

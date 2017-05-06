@@ -51,7 +51,7 @@ app.listen(app.get('port'), function() {
 		}
 		if (event.postback) {
 			let text = JSON.stringify(event.postback)
-			if(text.payload == '1') healthy(sender)
+			if(text.payload == '1') sendTextMessage(sender, text.payload)
 			continue
 		}
 	}

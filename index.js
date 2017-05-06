@@ -41,11 +41,6 @@ app.listen(app.get('port'), function() {
 		
 		if (event.message && event.message.text) {
 			let text = event.message.text
-			if (text === 'Generic'){ 
-				//console.log("welcome to chatbot")
-				sendGenericMessage(sender)
-				continue
-			}
 		    if (text.toLowerCase() === 'hi' || text.toLowerCase() === 'hello'){ 
 			sendOptions(sender);
 		}		

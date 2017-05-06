@@ -46,8 +46,7 @@ app.listen(app.get('port'), function() {
 				continue
 			}
 		    if (text.toLowerCase() === 'hi' || text.toLowerCase() === 'hello'){ 
-			sendTextMessage(sender, "How are you doing, I’m Kim! I’m a rehabilitated K-Pop star and nutrition bot in training. Winfred says I don’t know much yet, but I’m learning! \n My job as virtual nutrition expert is to help you eat right and reduce the amount of uneaten, disposed food. To help you track your eating habits, I need to know a few things about you at the moment. Don’t worry, I pinky swear I won’t tell anyone else.");
-			sendTextMessage(sender, "Please choose one of the following: 1. I want a healthier diet, 2. I like my current diet");
+			sendTextMessage(sender, "How are you doing, I’m Kim! I’m a rehabilitated K-Pop star and nutrition bot in training. Winfred says I don’t know much yet, but I’m learning! My job as virtual nutrition expert is to help you eat right and reduce the amount of uneaten, disposed food. To help you track your eating habits, I need to know a few things about you at the moment. Don’t worry, I pinky swear I won’t tell anyone else.");
 			}
 		}
 		if (event.postback) {
@@ -63,6 +62,40 @@ const token = process.env.FB_PAGE_ACCESS_TOKEN;
 
 function sendTextMessage(sender, text) {
     let messageData = { text:text }
+    request({
+	    url: 'https://graph.facebook.com/v2.6/me/messages',
+	    qs: {access_token:token},
+	    method: 'POST',
+		json: {
+		    recipient: {id:sender},
+			message: messageData,
+		}
+	}, function(error, response, body) {
+		if (error) {
+		    console.log('Error sending messages: ', error)
+		} else if (response.body.error) {
+		    console.log('Error: ', response.body.error)
+	    }
+    })
+	sendOptions(sender)
+}
+
+function sendOptions(sender) {
+    let messageData = {
+    "text":"Please choose one of the following:",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"I want a healthier diet",
+        "payload":"Healthier Diet"
+      },
+      {
+        "content_type":"text",
+        "title":"I like my current diet",
+        "payload":"Current diet"
+      }
+    ]
+  }
     request({
 	    url: 'https://graph.facebook.com/v2.6/me/messages',
 	    qs: {access_token:token},
@@ -127,6 +160,7 @@ function sendGenericMessage(sender) {
     })
 }
 
+/*
 function randomGif(){
 	const base_url = 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=american+psycho'
 	fetch(base_url)
@@ -137,3 +171,4 @@ function randomGif(){
 		  return jsondata['data']['fixed_width_small_url']
 	  })
 }
+*/

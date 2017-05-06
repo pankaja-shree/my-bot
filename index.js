@@ -47,7 +47,7 @@ app.listen(app.get('port'), function() {
 			}
 		    if (text.toLowerCase() === 'hi' || text.toLowerCase() === 'hello'){ 
 			sendOptions(sender);
-			}
+		}		
 		}
 
 		if (event.postback) {

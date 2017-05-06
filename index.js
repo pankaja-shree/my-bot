@@ -52,6 +52,10 @@ app.listen(app.get('port'), function() {
 		}
 	
 
+		if(event.message["quick_reply"]["payload"]){
+			sendTextMessage(sender,"Quick reply")
+		}
+
 		if (event.postback) {
 			let payload = event.postback.payload
 			switch(payload){

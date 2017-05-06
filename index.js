@@ -60,7 +60,7 @@ app.listen(app.get('port'), function() {
 
 const token = process.env.FB_PAGE_ACCESS_TOKEN;
 
-//this function sends the start message
+//General function to send a text message - copy from the bot guide
 function sendTextMessage(sender, text) {
     let messageData = { text:text }
     request({
@@ -81,22 +81,28 @@ function sendTextMessage(sender, text) {
 	sendOptions(sender)
 }
 
-//To give the first 2 options - 1. healthier diet; 2. Current diet
+//To send the Start messege and to give the first 2 options - 1. healthier diet; 2. Current diet
 function sendOptions(sender) {
     let messageData = {
-    "text":"How are you doing, I’m Kim! I’m a rehabilitated K-Pop star and nutrition bot in training. Winfred says I don’t know much yet, but I’m learning! My job as virtual nutrition expert is to help you eat right and reduce the amount of uneaten, disposed food. To help you track your eating habits, I need to know a few things about you at the moment. Don’t worry, I pinky swear I won’t tell anyone else. Please choose one of the following:",
-    "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"I want a healthier diet",
-        "payload":"1"
-      },
-      {
-        "content_type":"text",
-        "title":"I like my current diet",
-        "payload":"2"
-      }
-    ]
+		"attachment" : {
+			"type" : "template",
+			"payload": {
+				"template_type" : "button",
+				"text":"How are you doing, I’m Kim! I’m a rehabilitated K-Pop star and nutrition bot in training. Winfred says I don’t know much yet, but I’m learning! My job as virtual nutrition expert is to help you eat right and reduce the amount of uneaten, disposed food. To help you track your eating habits, I need to know a few things about you at the moment. Don’t worry, I pinky swear I won’t tell anyone else. Please choose one of the following:",
+				"buttons":[
+					{
+						"type":"postback",
+						"title":"I want a healthier diet",
+						"payload":"1"
+					},
+					{
+						"type":"postback",
+						"title":"I like my current diet",
+						"payload":"2"
+					}
+					]
+			}
+		}
   }
     request({
 	    url: 'https://graph.facebook.com/v2.6/me/messages',

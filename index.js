@@ -38,6 +38,7 @@ app.listen(app.get('port'), function() {
 	for (let i = 0; i < messaging_events.length; i++) {
 		let event = req.body.entry[0].messaging[i]
 		let sender = event.sender.id
+		
 		if (event.message && event.message.text) {
 			let text = event.message.text
 			if (text === 'Generic'){ 
@@ -47,14 +48,24 @@ app.listen(app.get('port'), function() {
 			}
 		    if (text.toLowerCase() === 'hi' || text.toLowerCase() === 'hello'){ 
 			sendOptions(sender);
-		}		
+			}		
 		}
+	
 
 		if (event.postback) {
-			let text = JSON.stringify(event.postback)
-			if(text.payload == '1') sendTextMessage(sender, text.payload)
-			continue
+			let payload = event.postback.payload
+			switch(payload){
+				case 1:
+				healthy(sender)
+				break
+
+				default :
+				var msg = "Implement logic for this Postback";
+				//sendTextMessage(senderID,msg); 
+				break;
+			}
 		}
+		continue
 	}
 	res.sendStatus(200)
 })

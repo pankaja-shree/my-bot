@@ -60,6 +60,7 @@ app.listen(app.get('port'), function() {
 
 const token = process.env.FB_PAGE_ACCESS_TOKEN;
 
+//this function sends the start message
 function sendTextMessage(sender, text) {
     let messageData = { text:text }
     request({
@@ -80,6 +81,7 @@ function sendTextMessage(sender, text) {
 	sendOptions(sender)
 }
 
+//To give the first 2 options - 1. healthier diet; 2. Current diet
 function sendOptions(sender) {
     let messageData = {
     "text":"Please choose one of the following:",
@@ -87,12 +89,12 @@ function sendOptions(sender) {
       {
         "content_type":"text",
         "title":"I want a healthier diet",
-        "payload":healthy(sender)
+        "payload":options(sender, 1)
       },
       {
         "content_type":"text",
         "title":"I like my current diet",
-        "payload":"Current diet"
+        "payload":options(sender, 2)
       }
     ]
   }
@@ -113,6 +115,11 @@ function sendOptions(sender) {
     })
 }
 
+function options(sender, opt){
+	if(opt == 1) healthy(sender)
+}
+
+//healthier diet option
 function healthy(sender) {
     let messageData = {
     "attachment":{

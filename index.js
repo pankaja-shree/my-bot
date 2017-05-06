@@ -51,10 +51,14 @@ app.listen(app.get('port'), function() {
 		}		
 	}
 	
-	if(event["message"]["quick_reply"]["payload"]){
+	/*
+	//Handle quick reply payload
+	   if(event["message"]["quick_reply"]["payload"]){
 			sendTextMessage(sender,"Quick reply")
 		}
+		*/
 
+//Handle postbacks
 		if (event.postback) {
 			let payload = event.postback.payload
 			switch(payload){

@@ -46,7 +46,7 @@ app.listen(app.get('port'), function() {
 				continue
 			}
 		    if (text.toLowerCase() === 'hi' || text.toLowerCase() === 'hello'){ 
-			sendTextMessage(sender, "How are you doing, I’m Kim! I’m a rehabilitated K-Pop star and nutrition bot in training. Winfred says I don’t know much yet, but I’m learning! My job as virtual nutrition expert is to help you eat right and reduce the amount of uneaten, disposed food. To help you track your eating habits, I need to know a few things about you at the moment. Don’t worry, I pinky swear I won’t tell anyone else.");
+			sendTextMessage(sender, "How are you doing, I’m Kim! I’m a rehabilitated K-Pop star and nutrition bot in training. Winfred says I don’t know much yet, but I’m learning! \n My job as virtual nutrition expert is to help you eat right and reduce the amount of uneaten, disposed food. To help you track your eating habits, I need to know a few things about you at the moment. Don’t worry, I pinky swear I won’t tell anyone else.");
 			sendTextMessage(sender, "Please choose one of the following: 1. I want a healthier diet, 2. I like my current diet");
 			}
 		}

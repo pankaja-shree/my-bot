@@ -52,7 +52,7 @@ app.listen(app.get('port'), function() {
 		}
 		if (event.postback) {
 			let text = JSON.stringify(event.postback)
-			sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
+			sendTextMessage(sender, "Postback received: "+text, token)
 			continue
 		}
 	}
@@ -89,12 +89,12 @@ function sendOptions(sender) {
       {
         "content_type":"text",
         "title":"I want a healthier diet",
-        "payload":options(sender, 1)
+        "payload":"1"
       },
       {
         "content_type":"text",
         "title":"I like my current diet",
-        "payload":options(sender, 2)
+        "payload":"2"
       }
     ]
   }
